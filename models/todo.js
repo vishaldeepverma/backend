@@ -9,6 +9,4 @@ const todoSchema = mongoose.Schema({
 const todoModel = mongoose.model("Todo", todoSchema);
 
 // export todo model
-module.exports = {
-  Todo: todoModel,
-};
+module.exports = todoModel;
