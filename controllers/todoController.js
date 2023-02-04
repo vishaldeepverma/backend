@@ -4,12 +4,15 @@ const { todoService } = require("../services");
 // add todo controller
 async function addTodoController(req, res, next) {
   try {
+    throw new Error("bad happend");
     const newTodo = await todoService.addTodoService(req.body);
     return res.status(201).send(newTodo);
   } catch (error) {
     next(error);
   }
 }
+
+// get all todo controller
 async function getAllTodoController(req, res, next) {
   try {
     const newTodo = await todoService.getAllTodoService(req.body);
@@ -18,6 +21,8 @@ async function getAllTodoController(req, res, next) {
     next(error);
   }
 }
+
+//delete todo controller
 async function deleteTodoController(req, res, next) {
   try {
     const deletedTodo = await todoService.deleteTodoService(req.params.id);
@@ -27,6 +32,7 @@ async function deleteTodoController(req, res, next) {
   }
 }
 
+// update todo controller
 async function updateTodoController(req, res, next) {
   try {
     const updatedTodo = await todoService.updateTodoService(
@@ -46,4 +52,5 @@ const todoController = {
   updateTodoController,
 };
 
+// export todo controller
 module.exports = todoController;

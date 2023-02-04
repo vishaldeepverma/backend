@@ -6,15 +6,18 @@ function addTodoService(todo) {
   return newTodo.save();
 }
 
+// get all todo service
 function getAllTodoService() {
   return Todo.find();
 }
 
+// delete todo service
 function deleteTodoService(_id) {
   return Todo.deleteOne({ _id });
 }
 
-async function updateTodoService(_id, updatedTodo) {
+// update todo service
+function updateTodoService(_id, updatedTodo) {
   return Todo.updateOne({ _id }, updatedTodo);
 }
 
@@ -25,4 +28,5 @@ const todoService = {
   updateTodoService,
 };
 
+// export todo service
 module.exports = todoService;
