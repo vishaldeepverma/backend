@@ -19,6 +19,10 @@ mongoose
   )
   .then(() => console.log(">>>>> connected to db successfully"));
 
+app.get("/health", (req, res, next) => {
+  res.send("I am healthy!!");
+});
+
 // use todo routes
 app.use("/api/todos", todoRoutes);
 
