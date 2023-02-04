@@ -1,27 +1,28 @@
 const { Todo } = require("../models");
 
 // add todo service
-async function addTodoService(todo) {
+function addTodoService(todo) {
   const newTodo = new Todo(todo);
-  return await newTodo.save();
+  return newTodo.save();
 }
 
-// function getAllTodoService() {
-//   return Todo.find();
-// }
+function getAllTodoService() {
+  return Todo.find();
+}
 
-// async function deleteTodoService(todo) {
-//   const newTodo = new Todo(todo);
-//   return await newTodo.save();
-// }
+function deleteTodoService(_id) {
+  return Todo.deleteOne({ _id });
+}
 
-// async function updateTodoService(todo) {
-//   const newTodo = new Todo(todo);
-//   return await newTodo.save();
-// }
+async function updateTodoService(_id, updatedTodo) {
+  return Todo.updateOne({ _id }, updatedTodo);
+}
 
 const todoService = {
   addTodoService,
+  getAllTodoService,
+  deleteTodoService,
+  updateTodoService,
 };
 
 module.exports = todoService;
